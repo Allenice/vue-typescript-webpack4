@@ -12,12 +12,7 @@ rm(path.join(assetsRoot, '**/*.dll.*.js.map'))
 let webpackConfig = {
     mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
     entry: {
-        vendor: [
-            'tslib',
-            'intersection-observer',
-            'supports-webp',
-            'graphql-request'
-        ],
+        vendor: ['tslib'],
         vue: [
             'vue/dist/vue.runtime.esm.js',
             'vue-router',
@@ -25,8 +20,7 @@ let webpackConfig = {
             'vue-svgicon',
             'vue-property-decorator',
             'vue-class-component',
-            'vuex-class',
-            'vue-ydui'
+            'vuex-class'
         ]
     },
     output: {

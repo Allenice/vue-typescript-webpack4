@@ -17,7 +17,10 @@ function resolve(dir) {
 let baseWebpackConfig = {
     context: path.resolve(__dirname, '../'),
     entry: {
-        style: './src/style/app.scss',
+        style: [
+            './node_modules/normalize.css/normalize.css',
+            './src/style/app.scss'
+        ],
         app: './src/main.ts'
     },
     output: {
@@ -57,7 +60,11 @@ let baseWebpackConfig = {
                 test: /\.ts$/,
                 enforce: 'pre',
                 include: [resolve('src')],
-                exclude: [resolve('node_modules'), /index\.ts$/],
+                exclude: [
+                    resolve('node_modules'),
+                    /index\.ts$/,
+                    resolve('src/views/Doc/vmd')
+                ],
                 loader: 'tslint-loader',
                 options: {
                     emitErrors: true
