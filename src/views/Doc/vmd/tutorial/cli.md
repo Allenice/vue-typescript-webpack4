@@ -45,7 +45,7 @@ yarn cli router [routerName] [viewPath]
 
 #### example
 ```
-yacn cli router product src/views/product
+yarn cli router product src/views/product
 ```
 
 ### 生成代码片段 snippets
