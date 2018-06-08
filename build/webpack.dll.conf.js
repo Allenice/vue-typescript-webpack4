@@ -10,8 +10,14 @@ rm(path.join(assetsRoot, '**/*.dll.*.js'))
 rm(path.join(assetsRoot, '**/*.dll.*.js.map'))
 
 let webpackConfig = {
+    mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
     entry: {
-        vendor: ['tslib'],
+        vendor: [
+            'tslib',
+            'intersection-observer',
+            'supports-webp',
+            'graphql-request'
+        ],
         vue: [
             'vue/dist/vue.runtime.esm.js',
             'vue-router',
@@ -19,7 +25,8 @@ let webpackConfig = {
             'vue-svgicon',
             'vue-property-decorator',
             'vue-class-component',
-            'vuex-class'
+            'vuex-class',
+            'vue-ydui'
         ]
     },
     output: {
@@ -45,25 +52,11 @@ let webpackConfig = {
         }),
 
         new webpack.optimize.ModuleConcatenationPlugin(),
-        new webpack.ContextReplacementPlugin(
-            /moment[\\\/]locale$/,
-            /^\.\/(en)$/
-        ),
         new webpack.DllPlugin({
             path: path.join(assetsRoot, 'manifest', '[name]-manifest.json'),
             name: '[name]_library'
         })
     ]
-}
-if (process.env.NODE_ENV !== 'development') {
-    webpackConfig.plugins.push(
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-            sourceMap: true
-        })
-    )
 }
 
 module.exports = webpackConfig
