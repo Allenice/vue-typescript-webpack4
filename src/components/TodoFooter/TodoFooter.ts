@@ -1,22 +1,23 @@
 /**
- * HelloWorld
+ * TodoFooter
+ * @author Allenice <994298628@qq.com>
+ * @date 2018-06-08 19:00:44
+ * @since 1.0.0
  */
 
 import Vue from 'components/base'
-import { Component, Prop } from 'vue-property-decorator'
-import template from './HelloWorld.vue'
+import { Component } from 'vue-property-decorator'
+import template from './TodoFooter.vue'
 
 @Component({
-    name: 'HelloWorld',
+    name: 'TodoFooter',
     mixins: [template]
 })
-export default class HelloWorld extends Vue {
+export default class TodoFooter extends Vue {
     //#region datas ******************************/
     //#endregion datas ***************************/
 
     //#region props ******************************/
-    @Prop({ default: 'World' })
-    protected name: string
     //#endregion props ***************************/
 
     //#region vuex *******************************/
@@ -29,9 +30,7 @@ export default class HelloWorld extends Vue {
     //#endregion watchers ************************/
 
     //#region life cycle *************************/
-    protected created() {
-        console.log('fff', process.env.NODE_ENV)
-    }
+    protected created() {}
     //#endregion life cycle **********************/
 
     //#region hooks ******************************/

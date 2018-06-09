@@ -58,6 +58,7 @@ let baseWebpackConfig = {
             },
             {
                 test: /\.ts$/,
+                loader: 'tslint-loader',
                 enforce: 'pre',
                 include: [resolve('src')],
                 exclude: [
@@ -65,7 +66,6 @@ let baseWebpackConfig = {
                     /index\.ts$/,
                     resolve('src/views/Doc/vmd')
                 ],
-                loader: 'tslint-loader',
                 options: {
                     emitErrors: true
                 }
