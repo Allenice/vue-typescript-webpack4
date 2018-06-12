@@ -23,7 +23,5 @@ export default {
 }
 ```
 
-{{ 1 + 1 }}
-
-<span v-for="i in 3">{{ i }} </span>
-<hello-world/>
+<hello-world name="Vue-Typescript"/>
+<svg-icon-demo />

@@ -6,6 +6,8 @@ import Vue from 'components/base'
 import { Component, Prop } from 'vue-property-decorator'
 import template from './HelloWorld.vue'
 
+import { State } from 'store/modules/demo'
+
 @Component({
     name: 'HelloWorld',
     mixins: [template]
@@ -20,6 +22,7 @@ export default class HelloWorld extends Vue {
     //#endregion props ***************************/
 
     //#region vuex *******************************/
+    @State('name') protected nameFromStore: string
     //#endregion vuex ****************************/
 
     //#region computed ***************************/
@@ -29,9 +32,7 @@ export default class HelloWorld extends Vue {
     //#endregion watchers ************************/
 
     //#region life cycle *************************/
-    protected created() {
-        console.log('fff', process.env.NODE_ENV)
-    }
+    protected created() {}
     //#endregion life cycle **********************/
 
     //#region hooks ******************************/

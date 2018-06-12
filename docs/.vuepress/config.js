@@ -17,6 +17,7 @@ module.exports = {
         let tsRules = baseConfig.module.rules.find(v => {
             return v.loader === 'ts-loader'
         })
+
         return {
             resolve: {
                 alias: baseConfig.resolve.alias
@@ -33,6 +34,5 @@ module.exports = {
     chainWebpack: (config, isServer) => {
         config.resolve.extensions.prepend('.ts')
         config.resolve.modules.prepend(resolve('src'))
-        console.log(config.toConfig())
     }
 }

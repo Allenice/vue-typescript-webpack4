@@ -51,7 +51,7 @@ let baseWebpackConfig = {
             {
                 test: /\.ts$/,
                 loader: 'ts-loader',
-                include: [resolve('src'), resolve('test')],
+                include: [resolve('src'), resolve('test'), resolve('docs')],
                 options: {
                     transpileOnly: true
                 }
